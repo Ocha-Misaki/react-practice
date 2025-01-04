@@ -1,3 +1,32 @@
-export default function Square() {
-  return <button className="square">X</button>;
+import { useState } from 'react';
+
+function Square() {
+  const [value, stateValue] = useState(null);
+
+  function handleClick() {
+    stateValue('X');
+  }
+  return <button className="square" onClick={handleClick}>{value}</button>;
+}
+
+export default function Board() {
+  return (
+    <>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+    </>
+  );
 }
